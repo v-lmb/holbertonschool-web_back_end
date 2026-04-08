@@ -2,12 +2,13 @@
 """
 Summary
 """
-from typing import Tuple, Union
+from typing import Callable
 
 
-def make_multiplier(k: str, v: Union[int, float]) -> Tuple[str, float]:
+def make_multiplier(multiplier: float) -> Callable[[float], float]:
     """
     function make_multiplier
     """
-    result: Tuple[str, float] = (k, v**2)
-    return (result)
+    def multi(x: float) -> float:
+        return x * multiplier
+    return multi
